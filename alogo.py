@@ -1,6 +1,7 @@
 from bs4 import BeautifulSoup
 import requests
 
+# http so'rovlarni amalga oshirish uchun kerak bo'ladigan object
 session = requests.session()
 
 url = "https://algo.ubtuit.uz/user/sign-in/login?back=%2Fuser%2Fsign-in%2Flogin"
@@ -37,15 +38,15 @@ if login_url_user.status_code == 200:
     with open("index.html", "w") as f:
         f.write(str(user_html_content))
         
-    # Nechanchi misol kerak bo'lsa o'sha sonni kiriting
-    count = int(input("Misol sonini kiriting: "))
+    # # Nechanchi misol kerak bo'lsa o'sha sonni kiriting
+    # count = int(input("Misol sonini kiriting: "))
     
-    # Misol joylashgan url
-    task_count_url = f"https://algo.ubtuit.uz/problem/{count}"
-    task_count_html = requests.get(task_count_url)
+    # # Misol joylashgan url
+    # task_count_url = f"https://algo.ubtuit.uz/problem/{count}"
+    # task_count_html = requests.get(task_count_url)
     
-    # Kerak bo'lgan misolning html fayli
-    with open("task.html", "w") as f:
-        f.write(str(task_count_html.text))
+    # # Kerak bo'lgan misolning html fayli
+    # with open("task.html", "w") as f:
+    #     f.write(str(task_count_html.text))
 else:
     print("Error!")
